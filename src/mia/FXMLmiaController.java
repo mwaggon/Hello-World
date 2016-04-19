@@ -60,15 +60,22 @@ public class FXMLmiaController implements Initializable {
         Gson gson = new Gson();
         Dataset data = gson.fromJson(str, Dataset.class);
         
-        XYChart.Series<String, Integer> dataSeries = new XYChart.Series();
-        Map<String, Integer> dataPoints = new TreeMap<String, Integer>();
+        
         Info[] infos = data.getFact();
         
-        for(Info info: infos){
+        XYChart.Series<String, Integer> dataSeries = new XYChart.Series();
+        dataSeries.setName("Percent Immunized");
+        for(Info info : infos){
             String country = info.getDim().getCountry();
             Integer percent = info.getValue();
-            dataPoints.put(country, percent);
+            dataSeries.getData().add(country, percent);
+                
         }
+        
+        
+        
+        
+        dataSeries.setName("Percent Immunized");
         
         
         
