@@ -19,7 +19,7 @@ public class Mia extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLmia.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("polio.fxml"));
         
         Scene scene = new Scene(root);
         

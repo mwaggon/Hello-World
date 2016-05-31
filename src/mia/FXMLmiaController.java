@@ -63,20 +63,20 @@ public class FXMLmiaController implements Initializable {
         
         Info[] infos = data.getFact();
         
-        XYChart.Series<String, Integer> dataSeries = new XYChart.Series();
+        XYChart.Series<String, Number> dataSeries = new XYChart.Series();
         dataSeries.setName("Percent Immunized");
         for(Info info : infos){
-            String country = info.getDim().getCountry();
-            Integer percent = info.getValue();
-            dataSeries.getData().add(country, percent);
-                
+            if(info.getDim().getCountry() != null){
+                //String country = info.getDim().getCountry();
+                //Integer percent = info.getValue();
+                dataSeries.getData().add(new XYChart.Data(info.getDim().getCountry(), info.getValue()));
+            }
         }
+        barChart.getData().add(dataSeries);
         
         
         
-        
-        dataSeries.setName("Percent Immunized");
-        
+            
         
         
     }    
