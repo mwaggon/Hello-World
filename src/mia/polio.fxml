@@ -3,10 +3,13 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -18,8 +21,28 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Slider layoutX="110.0" layoutY="72.0" />
-      <Slider layoutX="470.0" layoutY="72.0" />
-      <TextArea layoutX="110.0" layoutY="30.0" prefHeight="22.0" prefWidth="140.0" text="Minumum&#10;&#10;" />
+      <Slider fx:id="min" layoutX="56.0" layoutY="77.0" max="110.0" onMouseReleased="#handleChangeFilter" showTickLabels="true" showTickMarks="true" />
+      <Slider fx:id="max" layoutX="540.0" layoutY="72.0" max="110.0" onMouseReleased="#handleChangeFilter" showTickLabels="true" showTickMarks="true" />
+      <Text layoutX="576.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maximum" wrappingWidth="68.345703125" />
+      <Text layoutX="92.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimum" wrappingWidth="68.345703125" />
+      <Text layoutX="214.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\% Polio Immunizations by Country" wrappingWidth="320.345703125">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <MenuBar fx:id="menu">
+        <menus>
+          <Menu fx:id="file" mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#close" text="Close" />
+            </items>
+          </Menu>
+          <Menu fx:id="help" mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="info" mnemonicParsing="false" onAction="#printAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>
